@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" href="icon/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
-<body>
+<body style="background-image: url(img/robot.jpg); background-size: cover;">
     <div class="container">
         <h4 class="text-center">FORM LOGIN</h4>
-        <hr>
+        <hr> 
         <form action="login.php" method="POST">
             <div class="form-group">
                 <label>Username</label>

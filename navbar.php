@@ -12,7 +12,7 @@
 
 <body id="page-top">
 
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand font-weight-bold text-white" href="#">TUGAS AKHIR PEMROGRAMAN WEB</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
                         <a class="nav-link js-scroll-trigger text-white" href="#daftar">DAFTAR <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text-white" href="#tentang">TENTANG</a>
+                        <a class="nav-link js-scroll-trigger text-white" href="tentang.php">TENTANG</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger text-white" href="#tutorial">TUTORIAL</a>
@@ -32,10 +32,6 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger text-white" href="#artikel">ARTIKEL</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text-white" href="#hubungi_kami">HUBUNGI KAMI</a>
-                    </li>
-                    <li>
                     <i class="fa-1x fab fa-facebook text-white ml-3 mt-2"></i>
                     <i class="fa-1x fab fa-twitter text-white ml-3 mt-2"></i>
                     <i class="fa-1x fab fa-instagram text-white ml-3 mt-2"></i>
@@ -50,9 +46,9 @@
             <h1 class="display-4">EXPLORE YOUR SELF <br> <span class="font-weight-bold">IN WEB PROGRAMMING</span></h1>
             <hr class="my-4">
             <p class="lead">Website Input Mata Ujian Mahasiswa</p>
-            <a class="btn btn-primary btn-lg font-weight-bold" href="#" role="button">KUNJUNGI</a>
+            <a class="btn btn-primary btn-lg font-weight-bold" href="index.php" role="button">LOGIN</a>
         </div>
-    </div> -->
+    </div>
 
 </body>
 
