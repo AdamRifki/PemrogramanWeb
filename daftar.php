@@ -1,3 +1,12 @@
+<?php 
+require 'koneksi.php';
+
+// cek apakah tombol tambah sudah ditekan
+if (isset($_POST['tambah'])) {
+    tambah($_POST);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,107 +20,109 @@
 <body>
     <!-- Colum Container -->
     <div class="container p-3 my-3 border">
-        <h5 class="text-center">Form Data Mahasiswa</h5>
+        <h5 class="text-center">Form Input Data Mahasiswa</h5>
         <div class="alert alert-primary">
             <strong>Data Diri</strong>
         </div>
         <!-- Column Mahasiswa -->
-        <div class="row">
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <label>Nama Lengkap:</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap">
+        <form action="" method="POST">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Nama Lengkap:</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" autofocus>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Nomor Induk Mahasiswa (NIM):</label>
+                        <input type="text" name="nim" class="form-control" placeholder="Masukan Nomor NIM">
+                    </div>
+                </div>
+                <!-- Column Program Studi -->
+                <div class="col-sm-3">
+                    <dqiv class="form-group">
+                        <label>Program Studi:</label>
+                        <select class="form-control" name="programstudi">
+                            <option>Pilih</option>
+                            <option value="informatika">Informatika</option>
+                            <option value="ti">Teknologi Informasi</option>
+                            <option value="si">Sistem Informasi</option>
+                        </select>
+                    </dqiv>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Nomor Induk Mahasiswa (NIM):</label>
-                    <input type="text" name="nim" class="form-control" placeholder="Masukan Nomor NIM">
+            <!-- Column Tempat dan Tanggal Lahir -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Tempat Lahir:</label>
+                        <input type="text" name="tempatlahir" class="form-control" placeholder="Masukan Tempat Lahir">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Tanggal Lahir:</label>
+                        <input type="date" name="tanggalahir" class="form-control">
+                    </div>
+                </div>
+                <!-- Column Jenis Kelamin dan Agama -->
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Jenis Kelamin:</label>
+                        <select class="form-control" name="jeniskelamin">
+                            <option>Pilih</option>
+                            <option value="l">Laki-laki</option>
+                            <option value="p">Perempuan</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <!-- Column Program Studi -->
-            <div class="col-sm-3">
-                <dqiv class="form-group">
-                    <label>Program Studi:</label>
-                    <select class="form-control" name="prstudi">
-                        <option>Pilih</option>
-                        <option value="1">Informatika</option>
-                        <option value="2">Teknologi Informasi</option>
-                        <option value="3">Sistem Informasi</option>
-                    </select>
-                </dqiv>
-            </div>
-        </div>
-        <!-- Column Tempat dan Tanggal Lahir -->
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Tempat Lahir:</label>
-                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukan Tempat Lahir">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Agama:</label>
+                        <select class="form-control" name="agama">
+                            <option>Pilih</option>
+                            <option value="islam">Islam</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="katolik">Katolik</option>
+                            <option value="hindu">Hindu</option>
+                            <option value="budha">Budha</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Tanggal Lahir:</label>
-                    <input type="date" name="tanggal_lahir" class="form-control">
+            <!-- Column Alamat -->
+            <div class="alert alert-primary">
+                <strong>Data Alamat</strong>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Alamat:</label>
+                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Kota:</label>
+                        <input type="text" name="kota" class="form-control" placeholder="Kota">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Provinsi:</label>
+                        <input type="text" name="provinsi" class="form-control" placeholder="Provinsi">
+                    </div>
                 </div>
             </div>
-            <!-- Column Jenis Kelamin dan Agama -->
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <label>Jenis Kelamin:</label>
-                    <select class="form-control" name="jk">
-                        <option>Pilih</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Agama:</label>
-                    <select class="form-control" name="agama">
-                        <option>Pilih</option>
-                        <option value="Islam">Islam</option>
-                        <option value="Kristen">Kristen</option>
-                        <option value="Katolik">Katolik</option>
-                        <option value="Hindu">Hindu</option>
-                        <option value="Budha">Budha</option>
-                        <option value="Lainnya">Lainnya</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <!-- Column Alamat -->
-        <div class="alert alert-primary">
-            <strong>Data Alamat</strong>
-        </div>
-        <div class="row">
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <label>Alamat:</label>
-                    <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Kota:</label>
-                    <input type="text" name="kota" class="form-control" placeholder="Kota">
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Provinsi:</label>
-                    <input type="text" name="provinsi" class="form-control" placeholder="Provinsi">
-                </div>
-            </div>
-        </div>
+        </form>
         <!-- Button -->
         <div class="row">
             <div class="col-sm-4">
-                <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Daftar</button>
+                <button type="submit" name="tambah" id="tambah" class="btn btn-primary">Tambah</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
             </div>
         </div>

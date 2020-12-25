@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NavBar</title>
+    <title>Home</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="icon/css/all.min.css" />
@@ -20,17 +20,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link js-scroll-trigger text-white" href="#daftar">DAFTAR <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger text-white" href="tentang.php">TENTANG</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text-white" href="#tutorial">TUTORIAL</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text-white" href="#artikel">ARTIKEL</a>
                     </li>
                     <i class="fa-1x fab fa-facebook text-white ml-3 mt-2"></i>
                     <i class="fa-1x fab fa-twitter text-white ml-3 mt-2"></i>
@@ -46,7 +37,7 @@
             <h1 class="display-4">EXPLORE YOUR SELF <br> <span class="font-weight-bold">IN WEB PROGRAMMING</span></h1>
             <hr class="my-4">
             <p class="lead">Website Input Mata Ujian Mahasiswa</p>
-            <a class="btn btn-primary btn-lg font-weight-bold" href="index.php" role="button">LOGIN</a>
+            <a class="btn btn-primary btn-lg font-weight-bold" href="login.php" role="button">LOGIN</a>
         </div>
     </div>
 

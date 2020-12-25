@@ -1,7 +1,7 @@
 <?php
 require 'koneksi.php';
-$mahasiswa = query("SELECT * FROM mahasiswa");
 
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 
 <!DOCTYPE html>
@@ -10,46 +10,48 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Daftar Ujian</title>
+  <title>Daftar Mahasiswa</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 
 <body>
-  <table border="1" cellpading="10" cellspacing="0">
-    <tr>
-      <th>#</th>
-      <th>Nama Lengkap</th>
-      <th>NIM</th>
-      <th>Program Studi</th>
-      <th>Tempat Lahir</th>
-      <th>Tanggal Lahir</th>
-      <th>Jenis Kelamin</th>
-      <th>Agama</th>
-      <th>Alamat</th>
-      <th>Kota</th>
-      <th>Provinsi</th>
-      <th>Tindakan</th>
-    </tr>
-    <?php
-    foreach ($mahasiswa as $mhs) :
-    ?>
-      <tr>
-        <td>1</td>
-        <td><?= $mhs['nama']; ?></td>
-        <td><?= $mhs['nim']; ?></td>
-        <td><?= $mhs['programstudi']; ?></td>
-        <td><?= $mhs['tempatlahir']; ?></td>
-        <td><?= $mhs['tanggalahir']; ?></td>
-        <td><?= $mhs['jeniskelamin']; ?></td>
-        <td><?= $mhs['agama']; ?></td>
-        <td><?= $mhs['alamat']; ?></td>
-        <td><?= $mhs['kota']; ?></td>
-        <td><?= $mhs['provinsi']; ?></td>
-        <td>
-          <a href="">Ubah</a> | <a href="">Hapus</a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </table>
+  <div class="container p-3 my-3 border">
+    <h4 class="text-center">Data Daftar Mahasiswa</h4>
+    <div class="container my-4">
+      <table class="table table-bordered text-center">
+        <tr>
+          <td>NIM</td>
+          <td>Nama Lengkap</td>
+          <td>Program Studi</td>
+          <td>Tempat Lahir</td>
+          <td>Tanggal Lahir</td>
+          <td>Jenis Kelamin</td>
+          <td>Agama</td>
+          <td>Alamat</td>
+          <td>Kota</td>
+          <td>Provinsi</td>
+          <td>Tindakan</td>
+        </tr>
+        <?php
+        foreach ($mahasiswa as $mhs) : ?>
+          <tr>
+            <td><?= $mhs['nim']; ?></td>
+            <td><?= $mhs['nama']; ?></td>
+            <td><?= $mhs['programstudi']; ?></td>
+            <td><?= $mhs['tempatlahir']; ?></td>
+            <td><?= $mhs['tanggalahir']; ?></td>
+            <td><?= $mhs['jeniskelamin']; ?></td>
+            <td><?= $mhs['agama']; ?></td>
+            <td><?= $mhs['alamat']; ?></td>
+            <td><?= $mhs['kota']; ?></td>
+            <td><?= $mhs['provinsi']; ?></td>
+            <td><a href="">Ubah</a> <hr> <a href="">Hapus</a></td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+  </div>
+
 </body>
 
 </html>
