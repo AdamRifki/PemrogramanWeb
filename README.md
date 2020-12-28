@@ -8,6 +8,14 @@ nama database: akademik
 
 #untuk admin
 username: admin
-password: admin123
+password: 12345
 
-#untuk databasenya masih belum sempurna dan cukup banyak bug
+#untuk user
+username: reza
+password: reza123
+
+#untuk user
+username: fajrin
+password: fajrin12
+
+#untuk databasenya tinggal insert,update,delete dan buat fitur search

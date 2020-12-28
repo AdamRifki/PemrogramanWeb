@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Des 2020 pada 16.58
+-- Waktu pembuatan: 25 Des 2020 pada 18.13
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -65,6 +65,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `programstudi`, `tempatlahir`, `tanggalahir`, `jeniskelamin`, `agama`, `alamat`, `kota`, `provinsi`) VALUES
+('1711131', 'Mamang', 'Informatika', 'Maluku', '1999-12-25', 'L', 'Islam', 'Jalan Borneo', 'Balikpapan', 'Kalimantan Timur'),
 ('1711168', 'Ambo', 'Informatika', 'Ambon', '1999-01-05', 'L', 'Islam', 'Jalan Soekarno Hatta', 'Balikpapan', 'Kalimantan Timur');
 
 -- --------------------------------------------------------
@@ -97,6 +98,27 @@ CREATE TABLE `ujian` (
   `biayaujian` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(3, 'reza', '$2y$10$1Wqin8BbAmiVIiYooYu7puoYRR4uMvWzyAUtvMsUhdvPEGM1bAYgK'),
+(4, 'fajrin', '$2y$10$/XTugfcPUTOaBuCXdU5M3OnFSOFrQsSB611Nl0q5CABU7MLivDuba'),
+(5, 'admin', '$2y$10$gZvq/wpHSktjY7GMeQe0VOnOB9ekb2NHnC.J3ssWGMsAkAYzyjD6.');
+
 --
 -- Indexes for dumped tables
 --
@@ -126,6 +148,12 @@ ALTER TABLE `ujian`
   ADD PRIMARY KEY (`idmataujian`);
 
 --
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -134,6 +162,12 @@ ALTER TABLE `ujian`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
