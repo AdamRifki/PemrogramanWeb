@@ -53,10 +53,7 @@ if (isset($_POST['login'])) {
                 </div>
             </div>
             <button type="submit" name="login" class="btn btn-primary">Masuk</button>
-            <button type="reset" class="btn btn-secondary">Batal</button>
-            <li class="my-3">
-                <a href="registrasi.php">Daftar</a>
-            </li>
+            <button type="submit" class="btn btn-secondary" onclick="window.location.href='registrasi.php'">Daftar</button>
         </form>
     </div>
 

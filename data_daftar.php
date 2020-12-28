@@ -1,7 +1,16 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
 require 'koneksi.php';
 
-$mahasiswa = query("SELECT * FROM mahasiswa");
+// ambil nim
+$nim = $_GET['nim'];
+
+$mhs = query("SELECT * FROM mahasiswa WHERE nim = $nim");
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +25,12 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 
 <body>
   <div class="container p-3 my-3 border">
-    <h4 class="text-center">Data Daftar Mahasiswa</h4>
+    <h4 class="text-center">Data Lengkap Mahasiswa</h4>
     <div class="container my-4">
-      <table class="table table-bordered text-center">
+      <a href="data_daftar_singkat.php" class="btn btn-primary" role="button">Kembali</a>
+      <hr>
+      <table class="table table-sm table-bordered text-center">
+        <br>
         <tr>
           <td>NIM</td>
           <td>Nama Lengkap</td>
@@ -32,22 +44,22 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
           <td>Provinsi</td>
           <td>Tindakan</td>
         </tr>
-        <?php
-        foreach ($mahasiswa as $mhs) : ?>
-          <tr>
-            <td><?= $mhs['nim']; ?></td>
-            <td><?= $mhs['nama']; ?></td>
-            <td><?= $mhs['programstudi']; ?></td>
-            <td><?= $mhs['tempatlahir']; ?></td>
-            <td><?= $mhs['tanggalahir']; ?></td>
-            <td><?= $mhs['jeniskelamin']; ?></td>
-            <td><?= $mhs['agama']; ?></td>
-            <td><?= $mhs['alamat']; ?></td>
-            <td><?= $mhs['kota']; ?></td>
-            <td><?= $mhs['provinsi']; ?></td>
-            <td><a href="">Ubah</a> <hr> <a href="">Hapus</a></td>
-          </tr>
-        <?php endforeach; ?>
+        <tr>
+          <td><?= $mhs['nim']; ?></td>
+          <td><?= $mhs['nama']; ?></td>
+          <td><?= $mhs['programstudi']; ?></td>
+          <td><?= $mhs['tempatlahir']; ?></td>
+          <td><?= $mhs['tanggalahir']; ?></td>
+          <td><?= $mhs['jeniskelamin']; ?></td>
+          <td><?= $mhs['agama']; ?></td>
+          <td><?= $mhs['alamat']; ?></td>
+          <td><?= $mhs['kota']; ?></td>
+          <td><?= $mhs['provinsi']; ?></td>
+          <td>
+            <a href="" class="btn btn-primary m-1" role="button">Ubah</a>
+            <a href="" class="btn btn-light" role="button">Hapus</a>
+          </td>
+        </tr>
       </table>
     </div>
   </div>

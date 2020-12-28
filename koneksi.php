@@ -27,20 +27,24 @@ function tambah($data)
 
     $koneksi = koneksi();
 
-    $nama = $data['nama'];
-    $nim = $data['nim'];
-    $programstudi = $data['programstudi'];
-    $tempatlahir = $data['tempatlahir'];
-    $tanggalahir = $data['tanggalahir'];
-    $jeniskelamin = $data['jeniskelamin'];
-    $agama = $data['agama'];
-    $alamat = $data['alamat'];
-    $kota = $data['kota'];
-    $provinsi = $data['provinsi'];
+    $nim = htmlspecialchars($data['nim']);
+    $nama = htmlspecialchars($data['nama']);
+    $programstudi = htmlspecialchars($data['programstudi']);
+    $tempatlahir = htmlspecialchars($data['tempatlahir']);
+    $tanggalahir = htmlspecialchars($data['tanggalahir']);
+    $jeniskelamin = htmlspecialchars($data['jeniskelamin']);
+    $agama = htmlspecialchars($data['agama']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $kota = htmlspecialchars($data['kota']);
+    $provinsi = htmlspecialchars($data['provinsi']);
 
-    $query = "INSERT INTO mahasiswa VALUES (null, '$nama', '$nim', '$programstudi', '$tempatlahir', '$tanggalahir', '$jeniskelamin', 
-    '$agama', '$alamat', '$kota', '$provinsi')";
+    $query = "INSERT INTO mahasiswa VALUES ('$nim', '$nama', '$programstudi', '$tempatlahir', '$tanggalahir', '$jeniskelamin', 
+        '$agama', '$alamat', '$kota', '$provinsi')";
+
     mysqli_query($koneksi, $query);
+    echo mysqli_error($koneksi);
+
+    return mysqli_affected_rows($koneksi);
 }
 
 function login($data)

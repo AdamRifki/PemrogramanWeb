@@ -1,10 +1,18 @@
-<?php 
+<?php
 require 'koneksi.php';
 
 // cek apakah tombol tambah sudah ditekan
 if (isset($_POST['tambah'])) {
-    tambah($_POST);
+    if (tambah($_POST) > 0) {
+        echo "<script>
+                alert('data berhasil ditambahkan');
+                document.location.href = 'data_daftar_singkat.php';
+              </script>";
+    } else {
+        echo "<div class='alert alert-danger' role='alert'>Data Gagal Ditambahkan!</div>";
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,26 +38,26 @@ if (isset($_POST['tambah'])) {
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Nama Lengkap:</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" autofocus>
+                        <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap" autofocus required>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Nomor Induk Mahasiswa (NIM):</label>
-                        <input type="text" name="nim" class="form-control" placeholder="Masukan Nomor NIM">
+                        <input type="text" name="nim" class="form-control" placeholder="Masukan Nomor NIM" required>
                     </div>
                 </div>
                 <!-- Column Program Studi -->
                 <div class="col-sm-3">
-                    <dqiv class="form-group">
+                    <div class="form-group">
                         <label>Program Studi:</label>
-                        <select class="form-control" name="programstudi">
-                            <option>Pilih</option>
-                            <option value="informatika">Informatika</option>
+                        <select class="form-control" name="programstudi" required>
+                            <option value="">Pilih</option>
+                            <option value="if">Informatika</option>
                             <option value="ti">Teknologi Informasi</option>
                             <option value="si">Sistem Informasi</option>
                         </select>
-                    </dqiv>
+                    </div>
                 </div>
             </div>
             <!-- Column Tempat dan Tanggal Lahir -->
@@ -57,21 +65,21 @@ if (isset($_POST['tambah'])) {
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Tempat Lahir:</label>
-                        <input type="text" name="tempatlahir" class="form-control" placeholder="Masukan Tempat Lahir">
+                        <input type="text" name="tempatlahir" class="form-control" placeholder="Masukan Tempat Lahir" required>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Tanggal Lahir:</label>
-                        <input type="date" name="tanggalahir" class="form-control">
+                        <input type="date" name="tanggalahir" class="form-control" required>
                     </div>
                 </div>
                 <!-- Column Jenis Kelamin dan Agama -->
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Jenis Kelamin:</label>
-                        <select class="form-control" name="jeniskelamin">
-                            <option>Pilih</option>
+                        <select class="form-control" name="jeniskelamin" required>
+                            <option value="" selected>Pilih</option>
                             <option value="l">Laki-laki</option>
                             <option value="p">Perempuan</option>
                         </select>
@@ -82,8 +90,8 @@ if (isset($_POST['tambah'])) {
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Agama:</label>
-                        <select class="form-control" name="agama">
-                            <option>Pilih</option>
+                        <select class="form-control" name="agama" required>
+                            <option value="" selected>Pilih</option>
                             <option value="islam">Islam</option>
                             <option value="kristen">Kristen</option>
                             <option value="katolik">Katolik</option>
@@ -102,30 +110,30 @@ if (isset($_POST['tambah'])) {
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label>Alamat:</label>
-                        <textarea class="form-control" name="alamat" rows="2" id="alamat"></textarea>
+                        <textarea class="form-control" name="alamat" rows="2" id="alamat" required></textarea>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Kota:</label>
-                        <input type="text" name="kota" class="form-control" placeholder="Kota">
+                        <input type="text" name="kota" class="form-control" placeholder="Kota" required>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Provinsi:</label>
-                        <input type="text" name="provinsi" class="form-control" placeholder="Provinsi">
+                        <input type="text" name="provinsi" class="form-control" placeholder="Provinsi" required>
                     </div>
                 </div>
             </div>
-        </form>
-        <!-- Button -->
-        <div class="row">
-            <div class="col-sm-4">
-                <button type="submit" name="tambah" id="tambah" class="btn btn-primary">Tambah</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+            <!-- Button -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
             </div>
-        </div>
+        </form>
 </body>
 
 </html>

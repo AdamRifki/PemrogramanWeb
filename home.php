@@ -36,7 +36,7 @@
         <div class="container">
             <h1 class="display-4">EXPLORE YOUR SELF <br> <span class="font-weight-bold">IN WEB PROGRAMMING</span></h1>
             <hr class="my-4">
-            <p class="lead">Website Input Mata Ujian Mahasiswa</p>
+            <p class="lead">Website Ujian Online</p>
             <a class="btn btn-primary btn-lg font-weight-bold" href="login.php" role="button">LOGIN</a>
         </div>
     </div>
