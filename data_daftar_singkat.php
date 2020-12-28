@@ -9,6 +9,11 @@ if (!isset($_SESSION['login'])) {
 require 'koneksi.php';
 
 $mahasiswa = query("SELECT * FROM mahasiswa");
+
+// ketika tombol cari di tekan
+if (isset($_POST['cari'])) {
+  $mahasiswa = cari($_POST['keyword']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +24,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Mahasiswa</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body style="background-image: url(img/bg_data.jpg); background-size: cover;">
@@ -26,7 +32,21 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <h4 class="text-center">Data Mahasiswa</h4>
     <div class="container my-4">
       <a href="daftar.php" class="btn btn-primary" role="button">Tambah Data Mahasiswa</a>
-      <br>
+      <br><br>
+
+      <form action="" method="POST">
+        <div class="form-row">
+          <div class="col-sm-5">
+            <input class="form-control form-control-sm" type="text" name="keyword" placeholder="Masukan Keyword Pencarian..." autocomplete="off" autofocus>
+          </div>
+          <div class="col-sm">
+            <button class="btn btn-link" type="submit" name="cari">Cari</button>
+          </div>
+        </div>
+
+
+      </form>
+
       <table class="table table-sm table-bordered text-center my-3">
         <tr>
           <td>No</td>
@@ -35,6 +55,15 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
           <td>Program Studi</td>
           <td>Tindakan</td>
         </tr>
+
+        <?php if (empty($mahasiswa)) : ?>
+          <tr>
+            <td colspan="5">
+              <p class="m-2 py-2">Data Mahasiswa Tidak Ditemukan!</p>
+            </td>
+          </tr>
+        <?php endif; ?>
+
         <?php
         $no = 0;
         foreach ($mahasiswa as $mhs) : $no++; ?>

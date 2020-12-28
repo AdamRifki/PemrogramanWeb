@@ -21,6 +21,7 @@ $mhs = query("SELECT * FROM mahasiswa WHERE nim = $nim");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Mahasiswa</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body>
@@ -56,8 +57,8 @@ $mhs = query("SELECT * FROM mahasiswa WHERE nim = $nim");
           <td><?= $mhs['kota']; ?></td>
           <td><?= $mhs['provinsi']; ?></td>
           <td>
-            <a href="" class="btn btn-primary m-1" role="button">Ubah</a>
-            <a href="" class="btn btn-light" role="button">Hapus</a>
+            <a href="ubah.php?nim=<?= $mhs['nim']; ?>" class="btn btn-primary m-1" role="button">Ubah</a>
+            <a href="hapus.php?nim=<?= $mhs['nim']; ?>" onclick="return confirm('Apakah Anda Yakin?');" class="btn btn-light" role="button">Hapus</a>
           </td>
         </tr>
       </table>

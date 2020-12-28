@@ -23,6 +23,7 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="icon/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body style="background-image: url(img/robot.jpg); background-size: cover;">

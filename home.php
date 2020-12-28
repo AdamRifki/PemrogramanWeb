@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="icon/css/all.min.css" />
+    <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
         <div class="container">
             <a class="navbar-brand font-weight-bold text-white" href="#">TUGAS AKHIR PEMROGRAMAN WEB</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

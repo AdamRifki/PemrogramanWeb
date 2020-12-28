@@ -5,7 +5,7 @@ require 'koneksi.php';
 if (isset($_POST['tambah'])) {
     if (tambah($_POST) > 0) {
         echo "<script>
-                alert('data berhasil ditambahkan');
+                alert('Data berhasil Ditambahkan');
                 document.location.href = 'data_daftar_singkat.php';
               </script>";
     } else {
@@ -21,8 +21,9 @@ if (isset($_POST['tambah'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar</title>
+    <title>Input Data Mahasiswa</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body>
@@ -53,9 +54,9 @@ if (isset($_POST['tambah'])) {
                         <label>Program Studi:</label>
                         <select class="form-control" name="programstudi" required>
                             <option value="">Pilih</option>
-                            <option value="if">Informatika</option>
-                            <option value="ti">Teknologi Informasi</option>
-                            <option value="si">Sistem Informasi</option>
+                            <option value="Informatika">Informatika</option>
+                            <option value="Teknologi Informasi">Teknologi Informasi</option>
+                            <option value="Sistem Informasi">Sistem Informasi</option>
                         </select>
                     </div>
                 </div>
@@ -80,8 +81,8 @@ if (isset($_POST['tambah'])) {
                         <label>Jenis Kelamin:</label>
                         <select class="form-control" name="jeniskelamin" required>
                             <option value="" selected>Pilih</option>
-                            <option value="l">Laki-laki</option>
-                            <option value="p">Perempuan</option>
+                            <option value="L">Laki-laki</option>
+                            <option value="P">Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -92,12 +93,12 @@ if (isset($_POST['tambah'])) {
                         <label>Agama:</label>
                         <select class="form-control" name="agama" required>
                             <option value="" selected>Pilih</option>
-                            <option value="islam">Islam</option>
-                            <option value="kristen">Kristen</option>
-                            <option value="katolik">Katolik</option>
-                            <option value="hindu">Hindu</option>
-                            <option value="budha">Budha</option>
-                            <option value="lainnya">Lainnya</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Lainnya">Lainnya</option>
                         </select>
                     </div>
                 </div>

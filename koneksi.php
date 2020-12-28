@@ -22,31 +22,6 @@ function query($query)
     return $rows;
 }
 
-function tambah($data)
-{
-
-    $koneksi = koneksi();
-
-    $nim = htmlspecialchars($data['nim']);
-    $nama = htmlspecialchars($data['nama']);
-    $programstudi = htmlspecialchars($data['programstudi']);
-    $tempatlahir = htmlspecialchars($data['tempatlahir']);
-    $tanggalahir = htmlspecialchars($data['tanggalahir']);
-    $jeniskelamin = htmlspecialchars($data['jeniskelamin']);
-    $agama = htmlspecialchars($data['agama']);
-    $alamat = htmlspecialchars($data['alamat']);
-    $kota = htmlspecialchars($data['kota']);
-    $provinsi = htmlspecialchars($data['provinsi']);
-
-    $query = "INSERT INTO mahasiswa VALUES ('$nim', '$nama', '$programstudi', '$tempatlahir', '$tanggalahir', '$jeniskelamin', 
-        '$agama', '$alamat', '$kota', '$provinsi')";
-
-    mysqli_query($koneksi, $query);
-    echo mysqli_error($koneksi);
-
-    return mysqli_affected_rows($koneksi);
-}
-
 function login($data)
 {
     $koneksi = koneksi();
@@ -123,4 +98,89 @@ function registrasi($data)
 
     mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
     return mysqli_affected_rows($koneksi);
+}
+
+function tambah($data)
+{
+
+    $koneksi = koneksi();
+
+    $nim = htmlspecialchars($data['nim']);
+    $nama = htmlspecialchars($data['nama']);
+    $programstudi = htmlspecialchars($data['programstudi']);
+    $tempatlahir = htmlspecialchars($data['tempatlahir']);
+    $tanggalahir = htmlspecialchars($data['tanggalahir']);
+    $jeniskelamin = htmlspecialchars($data['jeniskelamin']);
+    $agama = htmlspecialchars($data['agama']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $kota = htmlspecialchars($data['kota']);
+    $provinsi = htmlspecialchars($data['provinsi']);
+
+    $query = "INSERT INTO mahasiswa VALUES ('$nim', '$nama', '$programstudi', '$tempatlahir', '$tanggalahir', '$jeniskelamin', 
+        '$agama', '$alamat', '$kota', '$provinsi')";
+
+    mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+
+    return mysqli_affected_rows($koneksi);
+}
+
+function hapus($nim)
+{
+    $koneksi = koneksi();
+
+    mysqli_query($koneksi, "DELETE FROM mahasiswa WHERE nim = $nim") or die(mysqli_error($koneksi));
+    return mysqli_affected_rows($koneksi);
+}
+
+function ubah($data)
+{
+
+    $koneksi = koneksi();
+
+    $nim = htmlspecialchars($data['nim']);
+    $nama = htmlspecialchars($data['nama']);
+    $programstudi = htmlspecialchars($data['programstudi']);
+    $tempatlahir = htmlspecialchars($data['tempatlahir']);
+    $tanggalahir = htmlspecialchars($data['tanggalahir']);
+    $jeniskelamin = htmlspecialchars($data['jeniskelamin']);
+    $agama = htmlspecialchars($data['agama']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $kota = htmlspecialchars($data['kota']);
+    $provinsi = htmlspecialchars($data['provinsi']);
+
+    $query = "UPDATE mahasiswa SET 
+                nama = '$nama',
+                programstudi = '$programstudi',
+                tempatlahir = '$tempatlahir',
+                tanggalahir = '$tanggalahir',
+                jeniskelamin = '$jeniskelamin',
+                agama = '$agama',
+                alamat = '$alamat',
+                kota = '$kota',
+                provinsi = '$provinsi'
+                WHERE nim = $nim";
+
+    mysqli_query($koneksi, $query) or die(mysqli_error($koneksi));
+
+    return mysqli_affected_rows($koneksi);
+}
+
+function cari($keyword)
+{
+    $koneksi = koneksi();
+
+    $query = "SELECT * FROM mahasiswa
+                WHERE nama LIKE '%$keyword%'
+                OR nim LIKE '%$keyword%'
+                OR programstudi LIKE '%$keyword%'
+                ";
+
+    $result = mysqli_query($koneksi, $query);
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
 }

@@ -7,6 +7,7 @@
     <title>Tentang</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="tentang.css">
+    <link rel="icon" type="image/png" href="img/umlogo.png" />
 </head>
 
 <body>
